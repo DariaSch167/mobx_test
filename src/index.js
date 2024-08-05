@@ -5,13 +5,16 @@ import App from "./components/App";
 import { Provider } from "mobx-react";
 import BooksStore from "./stores/BooksStore";
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 const stores = {
   bookStore: new BooksStore(),
 };
 
-ReactDOM.render(
-  <Provider {...stores}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
+root.render(
+  <React.StrictMode>
+    <Provider {...stores}>
+      <App />
+    </Provider>
+    ,
+  </React.StrictMode>
 );
